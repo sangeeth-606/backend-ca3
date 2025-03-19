@@ -19,19 +19,19 @@ app.get('/',(req,res)=>{
     return res.status(400).json({message:"User found",})
 })
 
-app.get('/user/:username',  async(req,res)=>{
+app.get('/user',  async(req,res)=>{
     try {
-        const username=req.params
+        const username=req.query
         console.log(username)
         if(!username){
             return res.status(500).json({message:"enter the name "})
         }
-        if (users.includes(username)){
-            return res.status(400).json({message:"User found",})
-        }
-        else{
-            return res.status(404).json({message:"User Not found"})
-        }
+        const user= users.find(u=>u.username  == username )
+        if(user)
+            return res.status(200).json({message:"user found", "data":user})
+        if(!user)
+            return res.status(404).json({message:"User not found"})
+        
         
         
     } catch (error) {

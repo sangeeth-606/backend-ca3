@@ -21,7 +21,7 @@ app.get('/',(req,res)=>{
 
 app.get('/user',  async(req,res)=>{
     try {
-        const username=req.query
+        const { username } = req.query; 
         console.log(username)
         if(!username){
             return res.status(500).json({message:"enter the name "})

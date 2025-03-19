@@ -16,7 +16,7 @@ app.listen(PORT, ()=>{
     console.log(`server is runing at port ${PORT}`)
 })
 app.get('/',(req,res)=>{
-    return res.status(400).json({message:"User found",})
+    return res.status(400).json({message:"hope you doing well , xd",})
 })
 
 app.get('/user',  async(req,res)=>{
